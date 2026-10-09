@@ -1,0 +1,395 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;
+  color:#cdd8e6;
+  line-height:1.7;
+  background:
+    radial-gradient(ellipse 65% 45% at 50% -5%, rgba(40,110,200,.20), transparent 60%),
+    linear-gradient(180deg,#10243a 0%,#122b42 100%);
+  background-attachment:fixed;
+}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,90%);margin:auto}
+header{
+  position:fixed;top:0;width:100%;z-index:10;
+  background:rgba(10,26,42,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(110,170,255,.18);
+}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:850;color:#f0f6fd}
+.logo i{color:#5fb0ff;font-style:normal}
+nav{display:flex;gap:30px;color:#a3b4c9;font-size:15px;font-weight:700}
+nav a:hover{color:#6db9ff}
+.actions{display:flex;align-items:center;gap:10px}
+.lang{
+  border:1px solid rgba(110,170,255,.28);
+  background:rgba(255,255,255,.05);
+  border-radius:6px;padding:7px 10px;font-size:12px;
+  cursor:pointer;color:#c1d2e6;
+}
+.btn{display:inline-block;padding:11px 20px;border-radius:7px;font-size:13px;font-weight:700}
+.primary{
+  color:#fff;background:linear-gradient(100deg,#1e7be8,#38c6f0);
+  box-shadow:0 10px 28px rgba(40,150,255,.22);
+  position:relative;overflow:hidden;
+}
+.primary::after{
+  content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);
+  animation:btnGlow 3.4s infinite;
+}
+@keyframes btnGlow{0%{left:-130%}60%{left:220%}100%{left:220%}}
+.ghost{border:1px solid rgba(200,220,255,.28);color:#dce6f2;background:rgba(255,255,255,.05)}
+.hero{
+  position:relative;overflow:hidden;padding:165px 0 95px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(60,150,230,.18), transparent 40%),
+    radial-gradient(circle at 8% 88%, rgba(40,120,200,.12), transparent 42%),
+    linear-gradient(180deg,#0e2236 0%,#122d44 100%);
+}
+.hero:before{
+  content:"";position:absolute;width:680px;height:680px;
+  right:-180px;top:20px;border-radius:50%;
+  background:radial-gradient(circle,rgba(70,160,240,.15),transparent 66%);
+}
+.hero::after{
+  content:"";position:absolute;width:460px;height:460px;
+  left:-120px;bottom:-130px;border-radius:50%;
+  background:radial-gradient(circle,rgba(50,140,220,.10),transparent 62%);
+}
+.grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(130,180,230,.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(130,180,230,.18) 1px,transparent 1px);
+  background-size:72px 72px;
+  opacity:.32;
+  mask-image:linear-gradient(to bottom,#000,transparent 85%);
+}
+.hero-grid{
+  position:relative;display:grid;
+  grid-template-columns:1.08fr .92fr;gap:55px;align-items:center;
+}
+.eyebrow,.kicker{font-size:11px;letter-spacing:3px;color:#5fb0ff;font-weight:800}
+.eyebrow{margin-bottom:16px}
+h1{font-size:62px;line-height:1.08;letter-spacing:-3px;margin:0;color:#ffffff}
+h1 span{background:linear-gradient(90deg,#6db9ff,#58d9f5);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:18px;color:#a9bbd2;max-width:650px;margin:24px 0 31px}
+.hero-actions{display:flex;gap:10px}
+.visual{height:390px;position:relative;display:grid;place-items:center}
+.ring{
+  position:absolute;border-radius:50%;
+  border:1px solid transparent;
+}
+.r1{
+  width:340px;height:340px;
+  border-top-color:rgba(110,180,255,.5);
+  border-bottom-color:rgba(110,180,255,.15);
+  animation:spin 14s linear infinite;
+}
+.r2{
+  width:240px;height:240px;
+  border-left-color:rgba(90,220,240,.55);
+  border-right-color:rgba(90,220,240,.2);
+  animation:spin 10s linear infinite reverse;
+}
+.r3{
+  width:430px;height:430px;
+  border:1px dashed rgba(110,170,255,.18);
+  animation:spin 26s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{
+  position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(140,225,255,.3),rgba(90,170,255,.15) 35%,transparent 68%);
+  filter:blur(5px);box-shadow:0 0 90px rgba(50,160,255,.30);
+  animation:pulseGlow 3.5s ease-in-out infinite alternate;
+}
+@keyframes pulseGlow{
+  from{transform:scale(.94);opacity:.8}
+  to{transform:scale(1.08);opacity:1}
+}
+.brain{
+  position:absolute;left:50%;top:50%;
+  width:152px;height:167px;margin:-86px 0 0 -76px;
+  filter:drop-shadow(0 0 14px rgba(120,220,255,.9)) drop-shadow(0 0 38px rgba(60,150,255,.6));
+  animation:floatBrain 4s ease-in-out infinite;
+}
+@keyframes floatBrain{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+.float{
+  position:absolute;
+  background:rgba(15,32,50,.9);
+  border:1px solid rgba(120,175,225,.3);
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  border-radius:9px;padding:8px 12px;font-size:10px;color:#c3d3e8;
+  animation:floatY 4s ease-in-out infinite;
+}
+.f1{top:24px;right:0;animation-delay:0s}
+.f2{bottom:34px;left:0;animation-delay:1.2s}
+.f3{top:150px;left:0;animation-delay:2.4s}
+@keyframes floatY{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* ========== SVG circle / dot / path 动画 全部CSS实现 ========== */
+.halo-outer{
+  animation:scalePulse 5.2s ease-in-out infinite;
+}
+.halo-mid{
+  animation:scalePulse 4.2s ease-in-out 0.4s infinite;
+}
+.halo-inner{
+  animation:scalePulse 3.2s ease-in-out 0.8s infinite;
+}
+@keyframes scalePulse{
+  0% {transform:scale(1);opacity:0.5;}
+  50% {transform:scale(1.14);opacity:0.8;}
+  100% {transform:scale(1);opacity:0.5;}
+}
+
+.orbit-1{
+  animation:orbitR 4.6s linear infinite;
+}
+.orbit-2{
+  animation:orbitR 4.6s linear 1.53s infinite;
+}
+.orbit-3{
+  animation:orbitR 4.6s linear 3.06s infinite;
+}
+@keyframes orbitR{
+  0% {r:8; opacity:0.75;}
+  50% {r:78; opacity:0;}
+  100% {r:8; opacity:0.75;}
+}
+
+.dot-main{
+  animation:dotPulse 2.4s ease-in-out infinite;
+}
+.dot{
+  animation:dotPulse 2.4s ease-in-out infinite;
+}
+.dot1 {animation-delay:0.20s;}
+.dot2 {animation-delay:0.40s;}
+.dot3 {animation-delay:0.60s;}
+.dot4 {animation-delay:0.80s;}
+.dot5 {animation-delay:1.00s;}
+.dot6 {animation-delay:1.20s;}
+.dot7 {animation-delay:1.40s;}
+.dot8 {animation-delay:0.30s;}
+.dot9 {animation-delay:0.50s;}
+.dot10 {animation-delay:0.75s;}
+.dot11 {animation-delay:1.00s;}
+.dot12 {animation-delay:1.25s;}
+.dot13 {animation-delay:1.50s;}
+.dot14 {animation-delay:0.45s;}
+.dot15 {animation-delay:0.65s;}
+.dot16 {animation-delay:0.85s;}
+.dot17 {animation-delay:1.05s;}
+.dot18 {animation-delay:1.25s;}
+.dot19 {animation-delay:1.45s;}
+.dot20 {animation-delay:1.65s;}
+.dot21 {animation-delay:1.85s;}
+.dot22 {animation-delay:0.40s;}
+.dot23 {animation-delay:0.56s;}
+.dot24 {animation-delay:0.72s;}
+.dot25 {animation-delay:0.88s;}
+.dot26 {animation-delay:1.04s;}
+.dot27 {animation-delay:1.20s;}
+.dot28 {animation-delay:1.36s;}
+.dot29 {animation-delay:1.52s;}
+
+@keyframes dotPulse{
+  0% {r:3.10; opacity:0.75;}
+  50% {r:6.90; opacity:1;}
+  100% {r:3.10; opacity:0.75;}
+}
+
+/* 路径stroke-dashoffset动画 */
+.path-1{animation:drawPath 2s linear 0.10s forwards;}
+.path-2{animation:drawPath 2s linear 0.25s forwards;}
+.path-3{animation:drawPath 2s linear 0.40s forwards;}
+.path-4{animation:drawPath 2s linear 0.55s forwards;}
+.path-5{animation:drawPath 2s linear 0.70s forwards;}
+.path-6{animation:drawPath 2s linear 0.85s forwards;}
+.path-7{animation:drawPath 2s linear 1.00s forwards;}
+.path-8{animation:drawPath 2s linear 1.15s forwards;}
+.path-9{animation:drawPath 1.6s linear 0.30s forwards;}
+.path-10{animation:drawPath 1.6s linear 0.45s forwards;}
+.path-11{animation:drawPath 1.6s linear 0.60s forwards;}
+.path-12{animation:drawPath 1.6s linear 0.75s forwards;}
+.path-13{animation:drawPath 1.6s linear 0.90s forwards;}
+.path-14{animation:drawPath 1.5s linear 0.35s forwards;}
+.path-15{animation:drawPath 1.5s linear 0.50s forwards;}
+.path-16{animation:drawPath 1.5s linear 0.65s forwards;}
+.path-17{animation:drawPath 1.5s linear 0.80s forwards;}
+.path-18{animation:drawPath 1.5s linear 0.95s forwards;}
+.path-19{animation:drawPath 1.5s linear 1.10s forwards;}
+.path-20{animation:drawPath 1.5s linear 1.25s forwards;}
+.path-21{animation:drawPath 1.5s linear 1.40s forwards;}
+.path-22{animation:blink14 1.4s infinite;}
+.path-23{animation:blink19 1.9s 0.5s infinite;}
+.path-24{animation:blink22 2.2s 0.9s infinite;}
+
+@keyframes drawPath{
+  to { stroke-dashoffset:0; }
+}
+@keyframes blink14{
+  0%,100%{opacity:0.45;}
+  50%{opacity:1;}
+}
+@keyframes blink19{
+  0%,100%{opacity:0.4;}
+  50%{opacity:0.85;}
+}
+@keyframes blink22{
+  0%,100%{opacity:0.35;}
+  50%{opacity:0.75;}
+}
+
+section{padding:95px 0}
+.section-head{max-width:720px;margin-bottom:43px}
+.section-head h2{font-size:38px;line-height:1.2;letter-spacing:-1px;margin:8px 0;color:#f0f6fd}
+.section-head p{color:#93a6bf;margin:0}
+
+/*=========能力卡片 桌面端一行5张=========*/
+.cards{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+.card{
+  min-height:220px;
+  padding:22px 18px;
+  border:1px solid rgba(120,175,225,.20);
+  border-radius:13px;
+  background:linear-gradient(160deg,rgba(24,44,66,.9),rgba(16,33,52,.85));
+  transition:.25s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 42px rgba(0,0,0,.25);
+  border-color:rgba(110,190,255,.45);
+  background:linear-gradient(160deg,#1c3a58,#14293f);
+}
+.num{font-size:10px;letter-spacing:2px;color:#7c90aa}
+.card h3{
+  font-size:17px;
+  margin:42px 0 6px;
+  color:#edf4fc;
+}
+.card p{
+  font-size:12.5px;
+  line-height:1.6;
+  color:#9eafc6;
+}
+
+.light{
+  border-top:1px solid rgba(120,175,225,.14);
+  border-bottom:1px solid rgba(120,175,225,.14);
+  background:linear-gradient(180deg,#122c44,#0f273c);
+}
+.process{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  border:1px solid rgba(120,175,225,.20);
+  border-radius:13px;overflow:hidden;
+  background:rgba(14,31,49,.85);
+  box-shadow:0 6px 24px rgba(0,0,0,.15);
+}
+.step{
+  padding:27px 20px;min-height:185px;
+  border-right:1px solid rgba(120,175,225,.14);
+  background:linear-gradient(180deg,#1a3150,#0f253a);
+  opacity:0;
+  transform:translateY(28px);
+  transition:0.6s ease-out;
+}
+.step.step-in{
+  opacity:1;
+  transform:translateY(0);
+}
+.step:last-child{border:0}
+.step strong{font-size:12px;color:#5fb0ff}
+.step h3{margin:25px 0 7px;font-size:17px;color:#dce9fa}
+.step p{font-size:13px;color:#93a6bf}
+.cases{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}
+.case{
+  min-height:255px;padding:29px;
+  border:1px solid rgba(120,175,225,.20);
+  border-radius:13px;
+  background:linear-gradient(135deg,#1a314c,#132740);
+  transition:.25s;
+}
+.case:hover{box-shadow:0 18px 40px rgba(0,0,0,.2);border-color:rgba(110,190,255,.4)}
+
+.case-link{
+  display:block;
+  width:100%;
+  height:100%;
+  cursor:pointer;
+}
+.case-link h3{
+  transition: color 0.22s ease;
+}
+.case-link:hover h3{
+  color:#6db9ff;
+}
+
+.tag{
+  display:inline-block;
+  border:1px solid #5f9fe0;
+  background:rgba(40,120,210,.25);
+  color:#6db9ff;
+  padding:4px 8px;border-radius:30px;font-size:10px;font-weight:800;
+}
+.case h3{font-size:25px;margin:43px 0 8px;color:#edf4fc}
+.case p{font-size:14px;color:#97a8c0}
+.cta{
+  text-align:center;padding:90px 20px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(50,140,230,.14), transparent 58%),
+    linear-gradient(135deg,#112a42,#153150);
+}
+.cta h2{font-size:41px;letter-spacing:-1px;margin:8px 0;color:#f0f6fd}
+.cta p{color:#93a6bf;margin:10px 0 25px}
+footer{
+  padding:30px 0;border-top:1px solid rgba(120,175,225,.14);
+  background:#0d2033;color:#93a3b9;font-size:12px;
+}
+.foot{display:flex;justify-content:space-between}
+.en{display:none}
+.lang.en-mode .zh{display:none}
+.lang.en-mode .en{display:inline}
+.lang.en-mode{color:#5fb0ff}
+
+/*响应式 */
+@media(max-width:1100px){
+  .cards{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+@media(max-width:900px){
+  nav{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .visual{height:300px}
+  h1{font-size:49px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .process{grid-template-columns:1fr 1fr}
+  .step{border-bottom:1px solid rgba(120,175,225,.14)}
+  .cases{grid-template-columns:1fr}
+}
+@media(max-width:550px){
+  h1{font-size:39px}
+  .cards,.process{grid-template-columns:1fr}
+  .step{border-right:0}
+  .hero{padding-top:135px}
+  .foot{flex-direction:column;gap:8px}
+  .cta h2{font-size:31px}
+}
